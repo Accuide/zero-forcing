@@ -1,5 +1,9 @@
-from itertools import chain, combinations
-
-def powerset(iterable: set[int]) -> list[set[int]]:
-    s = list(iterable)
-    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+def powerset(s: list[int]) -> list[set[int]]:
+    all_sets = []
+    for i in 2**len(s):
+        f = set()
+        for k, j in enumerate(s):
+            if (i >> k) & 1:
+                f.add(j)
+        all_sets.append(f)
+    return all_sets
