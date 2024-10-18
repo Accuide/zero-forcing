@@ -23,4 +23,4 @@ def greatest_degree(g: Graph) -> set[int]:
     for j in forced:
         g_clone.remove_all_edges(j)
     
-    return greatest_degree(g_clone).union(forced)
+    return greatest_degree(g_clone).union({ i })

@@ -4,6 +4,7 @@ from src.graph import Graph
 from src.algorithms.brute_force import brute_force
 from src.algorithms.least_degree import least_degree
 from src.algorithms.greatest_degree import greatest_degree
+from src.algorithms.least_degree_pair import least_degree_pair
 
 def generate_random_graph(size: int, edge_probability: float):
     g = Graph(size, [[False for _ in range(size)] for _ in range(size)])
@@ -23,24 +24,49 @@ def generate_random_graph(size: int, edge_probability: float):
     return g
 
 def main():
-    size = 10
-    edge_probability = 0.25
+    if True:
+    
+        size = 10
+        edge_probability = 0.25
 
-    g = generate_random_graph(size, edge_probability)
+        g = generate_random_graph(size, edge_probability)
 
-    print("\n".join([ ",".join([ "1" if cell else "0" for cell in row ]) for row in g.adj ]))
+        print("\n".join([ ",".join([ "1" if cell else "0" for cell in row ]) for row in g.adj ]))
 
-    brute_force_solution = brute_force(g)
+        brute_force_solution = brute_force(g)
 
-    print("brute_force", brute_force_solution)
+        print("brute_force", brute_force_solution)
 
-    least_degree_solution = least_degree(g)
+        least_degree_solution = least_degree(g)
 
-    print("least_degree", least_degree_solution)
+        print("least_degree", least_degree_solution)
 
-    greatest_degree_solution = greatest_degree(g)
+        greatest_degree_solution = greatest_degree(g)
 
-    print("greatest_degree", greatest_degree_solution)
+        print("greatest_degree", greatest_degree_solution)
+
+        
+        #least_degree_pair_solution = least_degree_pair(g)
+
+        #print("least_degree_pair", least_degree_pair_solution)
+
+    else:
+        g = Graph(10, [
+            [0,1,0,0,0,0,0,0,0,1],
+            [1,0,0,0,0,1,0,0,0,0],
+            [0,0,0,0,1,0,1,0,0,0],
+            [0,0,0,0,1,0,0,0,0,0],
+            [0,0,1,1,0,1,1,0,1,1],
+            [0,1,0,0,1,0,0,0,0,0],
+            [0,0,1,0,1,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,1],
+            [0,0,0,0,1,0,0,0,0,1],
+            [1,0,0,0,1,0,0,1,1,0]
+        ])
+
+        least_degree_solution = least_degree(g)
+
+        print("least_degree", least_degree_solution)
 
 if __name__ == "__main__":
     main()
