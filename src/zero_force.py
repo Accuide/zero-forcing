@@ -11,7 +11,7 @@ def zero_force(g: Graph, initial: set[int]) -> set[int]:
         total_nodes = 0
         forced_nodes = 0
         last_unforced_node = 0
-        for j in [idx for idx, is_edge in enumerate(g.adj[i]) if is_edge]:
+        for j in g.get_edges(i):
             total_nodes += 1
             if j in forced_set:
                 forced_nodes += 1
