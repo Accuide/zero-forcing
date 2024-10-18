@@ -1,6 +1,11 @@
 from src.graph import Graph
 
 def zero_force(g: Graph, initial: set[int]) -> set[int]:
+    """
+    Given a graph and an initial set of colored vertices, determine what other vertices can be colored.
+    Runtime: O(n)
+    """
+
     forced_set = { i for i in initial }
     queue = [ i for i in initial ]
     

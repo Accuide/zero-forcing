@@ -16,6 +16,10 @@ class Graph:
         else:
             self.adj[i][j] = False
     
+    def remove_all_edges(self, i):
+        for j in range(self.size):
+            self.remove_edge(i, j)
+
     def has_edge(self, i: int, j: int):
         if i > j:
             return self.has_edge(j, i)
@@ -27,3 +31,6 @@ class Graph:
     
     def get_degree(self, i: int):
         return sum(self.adj[i])
+    
+    def clone(self):
+        return Graph(self.size, [[cell for cell in row] for row in self.adj])
