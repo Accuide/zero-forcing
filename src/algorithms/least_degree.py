@@ -12,7 +12,7 @@ def least_degree(g: Graph) -> set[int]:
     non_zero_nodes = list(filter(lambda i: g.get_degree(i) > 0, range(0, g.size)))
     
     if len(non_zero_nodes) == 0:
-        return {}
+        return set()
     
     i = min(*non_zero_nodes, key=g.get_degree)
 
@@ -23,4 +23,4 @@ def least_degree(g: Graph) -> set[int]:
     for j in forced:
         g_clone.remove_all_edges(j)
     
-    return least_degree(g_clone) + forced
+    return least_degree(g_clone).union(forced)

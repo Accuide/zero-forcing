@@ -5,26 +5,20 @@ class Graph:
         self.adj = adj
     
     def add_edge(self, i: int, j: int):
-        if i > j:
-            self.add_edge(j, i)
-        else:
+        if i != j:
             self.adj[i][j] = True
+            self.adj[j][i] = True
     
     def remove_edge(self, i: int, j: int):
-        if i > j:
-            self.remove_edge(j, i)
-        else:
-            self.adj[i][j] = False
+        self.adj[i][j] = False
+        self.adj[j][i] = False
     
     def remove_all_edges(self, i):
         for j in range(self.size):
             self.remove_edge(i, j)
 
     def has_edge(self, i: int, j: int):
-        if i > j:
-            return self.has_edge(j, i)
-        else:
-            return self.adj[i][j]
+        return self.adj[i][j]
 
     def get_edges(self, i: int):
         return [idx for idx, is_edge in enumerate(self.adj[i]) if is_edge]
