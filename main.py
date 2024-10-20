@@ -5,6 +5,7 @@ from src.algorithms.brute_force import brute_force
 from src.algorithms.least_degree import least_degree
 from src.algorithms.greatest_degree import greatest_degree
 from src.algorithms.least_degree_pair import least_degree_pair
+from src.algorithms.k_subsets import k_subsets
 
 def generate_random_graph(size: int, edge_probability: float):
     g = Graph(size, [[False for _ in range(size)] for _ in range(size)])
@@ -26,7 +27,7 @@ def generate_random_graph(size: int, edge_probability: float):
 def main():
     if True:
     
-        size = 10
+        size = 12
         edge_probability = 0.25
 
         g = generate_random_graph(size, edge_probability)
@@ -41,9 +42,12 @@ def main():
 
         print("least_degree", least_degree_solution)
 
-        greatest_degree_solution = greatest_degree(g)
+        #greatest_degree_solution = greatest_degree(g)
+        #print("greatest_degree", greatest_degree_solution)
 
-        print("greatest_degree", greatest_degree_solution)
+        k_subsets_solution = k_subsets(g, 3)
+
+        print("k_subsets", k_subsets_solution)
 
         
         #least_degree_pair_solution = least_degree_pair(g)
