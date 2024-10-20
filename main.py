@@ -28,7 +28,7 @@ def main():
     if True:
     
         size = 12
-        edge_probability = 0.25
+        edge_probability = 0.2
 
         g = generate_random_graph(size, edge_probability)
 
@@ -45,7 +45,7 @@ def main():
         #greatest_degree_solution = greatest_degree(g)
         #print("greatest_degree", greatest_degree_solution)
 
-        k_subsets_solution = k_subsets(g, 3)
+        k_subsets_solution = k_subsets(g, 2)
 
         print("k_subsets", k_subsets_solution)
 
