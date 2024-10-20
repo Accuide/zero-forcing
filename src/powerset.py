@@ -1,18 +1,20 @@
-def powerset(A: list[int]) -> list[list[int]]:
-    P = [ [] ]
+def powerset(A: list[int]):
+    P: list[set[int]] = [ set() ]
     for a in A:
         added_elements = []
         for B in P:
-            added_elements.append(B + [a])
+            new_set: set[int] = B.union({ a })
+            yield new_set
+            added_elements.append(new_set)
         P += added_elements
-    return P
 
-def powerset_under_k(A: list[int], k: int) -> list[list[int]]:
-    P = [ [] ]
+def powerset_under_k(A: list[int], k: int):
+    P: list[set[int]] = [ set() ]
     for a in A:
         added_elements = []
         for B in P:
             if len(B) < k:
-                added_elements.append(B + [a])
+                new_set: set[int] = B.union({ a })
+                yield new_set
+                added_elements.append(new_set)
         P += added_elements
-    return P
